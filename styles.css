@@ -38,7 +38,7 @@ header {
 }
 
 /* Скрываем кнопку меню при открытом меню */
-nav.open ~ .menu-button {
+.menu-open .menu-button {
     display: none;
 }
 
