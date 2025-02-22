@@ -7,6 +7,7 @@ body {
     padding: 0;
     background-color: #f9f9f9;
     color: #333;
+    overflow-x: hidden;
 }
 
 /* Шапка */
@@ -24,75 +25,59 @@ header {
     height: 50px;
 }
 
+.menu-button {
+    display: block;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Меню */
+nav {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+    padding-top: 60px;
+    transition: right 0.3s ease-in-out;
+}
+
+nav.open {
+    right: 0;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    gap: 20px;
+    text-align: center;
 }
 
 nav a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 10px;
-    transition: 0.3s;
+    display: block;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s;
 }
 
 nav a:hover {
     background: #eee;
 }
 
-/* Основные секции */
-section {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 40px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-h1, h2 {
-    color: #222;
-}
-
-/* Форма */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-input, textarea {
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-}
-
-button {
-    padding: 12px;
-    border: none;
-    background: #333;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 10px;
+.close-menu {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
     cursor: pointer;
-    transition: 0.3s;
 }
-
-button:hover {
-    background: #555;
-}
-
-/* Подвал */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 20px 20px 0 0;
-}
-
