@@ -2,7 +2,7 @@
 
 /* Общие стили */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
@@ -27,7 +27,7 @@ header {
 
 .menu-button {
     display: block;
-    font-size: 24px;
+    font-size: 28px;
     background: none;
     border: none;
     cursor: pointer;
@@ -37,17 +37,23 @@ header {
     z-index: 1000;
 }
 
+/* Скрываем кнопку меню при открытом меню */
+nav.open + .menu-button {
+    display: none;
+}
+
 /* Меню слева */
 nav {
     position: fixed;
     top: 0;
-    left: -300px;  /* Меню скрыто слева */
-    width: 300px;
+    left: -320px;  /* Меню скрыто слева */
+    width: 320px;
     height: 100%;
     background: white;
     box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
     padding-top: 60px;
     transition: left 0.3s ease-in-out;
+    border-radius: 0 20px 20px 0;
 }
 
 nav.open {
@@ -64,22 +70,31 @@ nav ul {
 nav a {
     text-decoration: none;
     color: #333;
+    font-size: 22px;
     font-weight: bold;
     display: block;
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
+    padding: 18px 20px;
     transition: background 0.3s;
+    border-radius: 10px;
 }
 
 nav a:hover {
-    background: #eee;
+    background: #f0f0f0;
 }
 
 .close-menu {
     position: absolute;
     top: 15px;
     left: 20px;
-    font-size: 24px;
+    font-size: 28px;
     cursor: pointer;
 }
 
+/* Блок информации внизу */
+.menu-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 16px;
+    color: #666;
+}
