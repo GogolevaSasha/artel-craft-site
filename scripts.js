@@ -1,27 +1,35 @@
 // scripts.js
 
-document.addEventListener("DOMContentLoaded", function () {
-    const menuButton = document.createElement("button");
-    menuButton.innerHTML = "☰";
-    menuButton.classList.add("menu-button");
-    document.body.appendChild(menuButton);
+// Открытие и закрытие бокового меню
+const menuButton = document.querySelector(".menu-button");
+const closeMenu = document.querySelector(".close-menu");
+const nav = document.querySelector("nav");
 
-    const nav = document.querySelector("nav");
-    if (!nav) {
-        console.error("Меню (nav) не найдено!");
-        return;
-    }
-
-    menuButton.addEventListener("click", function () {
-        nav.classList.toggle("open");
-    });
-
-    const closeButton = document.createElement("span");
-    closeButton.innerHTML = "✖";
-    closeButton.classList.add("close-menu");
-    nav.prepend(closeButton);
-
-    closeButton.addEventListener("click", function () {
-        nav.classList.remove("open");
-    });
+menuButton.addEventListener("click", function () {
+    nav.classList.add("open");
 });
+
+closeMenu.addEventListener("click", function () {
+    nav.classList.remove("open");
+});
+
+// Закрытие меню при клике вне его области, но не на вложенные элементы
+document.addEventListener("click", function (event) {
+    if (!nav.contains(event.target) && !menuButton.contains(event.target) && !event.target.closest("nav")) {
+        nav.classList.remove("open");
+    }
+});
+
+// Анимация появления элементов при скролле с проверкой на существование
+const fadeElements = document.querySelectorAll(".fade-in");
+if (fadeElements.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    fadeElements.forEach((el) => observer.observe(el));
+}
