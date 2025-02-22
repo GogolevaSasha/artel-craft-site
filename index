@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Строительная компания</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .tab-btn {
+            cursor: pointer;
+            transition: background-color 0.3s;
+            padding: 6px 16px;
+            font-size: 14px;
+            border-radius: 50px;
+        }
+        .tab-btn:hover {
+            background-color: #e5e5e5;
+        }
+        .tab-content {
+            display: none;
+        }
+        .active-tab {
+            display: block;
+        }
+        .sidebar {
+            position: fixed;
+            left: -300px;
+            top: 0;
+            height: 100vh;
+            width: 300px;
+            background: white;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: left 0.3s ease-in-out;
+            border-radius: 0 20px 20px 0;
+            z-index: 50;
+        }
+        .sidebar.open {
+            left: 0;
+        }
+        .menu-btn {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background: transparent;
+            color: black;
+            font-size: 24px;
+            cursor: pointer;
+            border: none;
+        }
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: black;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 40;
+        }
+        .overlay.active {
+            display: block;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-white text-black">
+    
+    <!-- Хедер -->
+    <header class="header">
+        <h1 class="text-2xl font-bold ml-12"><a href="index.html">ArtelCraft</a></h1>
+        <nav class="nav-links flex space-x-0">
+            <button class="tab-btn border border-gray-300 font-bold px-2 py-1" onclick="">Готовые объекты</button>
+            <button class="tab-btn border border-gray-300 font-bold" onclick="">Проекты</button>
+            <button class="tab-btn border border-gray-300" onclick="">Услуги</button>
+            <button class="tab-btn border border-gray-300" onclick="">Компания</button>
+            <button class="tab-btn border border-gray-300" onclick="">Контакты</button>
+        </nav>
+        <button class="menu-btn w-7 h-7 bg-black text-white flex items-center justify-center rounded-full" onclick="toggleMenu()"><span class='text-lg'>☰</span></button>
+    </header>
+    <section class="px-6 py-12">
+        <h2 class="text-4xl font-extrabold leading-tight font-manrope">
+            <span class="underline"><span class="font-bold underline"><a href='video.html' class='font-bold underline'>Производство</a></span></span> <span class="font-normal">бревенчатых</span> <span class="font-bold"><span class="font-bold underline"><span class="font-bold underline"><a href='video.html' class='font-bold underline'>домов</a></span></span></span> и <span class="font-bold"><span class="font-bold underline"><a href='video.html' class='font-bold underline'>бань</a></span></span>
+        </h2>
+        <p class="text-4xl mt-4 font-manrope">
+            по авторским <span class="font-bold"><span class="font-bold underline"><a href='video.html' class='font-bold underline'>проектам</a></span></span> из Полярной сосны <span class="font-bold underline">Кело</span> без усадки и покраски
+        </p>
+    </section>
+    <section class="px-6 py-12">
+        <h2 class="text-3xl font-bold">За 16 лет работы мы построили</h2>
+        <div class="flex items-center mt-4 space-x-4">
+            <button class="border border-gray-300 px-4 py-2 rounded-full">285 ОБЪЕКТОВ</button>
+            <button class="border border-gray-300 px-4 py-2 rounded-full">→</button>
+            <button class="bg-gray-100 px-4 py-2 rounded-full border border-gray-300">164 ПРОЕКТОВ В РАБОТЕ</button>
+            <button class="bg-gray-100 px-4 py-2 rounded-full border border-gray-300">17 НОВЫХ КЛИЕНТОВ В ЭТОМ МЕСЯЦЕ</button>
+        </div><div class="grid grid-cols-2 gap-6 mt-6">
+            <div class="relative bg-gray-100 p-4 rounded-lg"><div class="relative">
+                <img src="sokolovo.jpg" alt="Соколово" class="rounded-lg">
+                <div class="absolute bottom-4 left-4 text-white font-bold text-xl">Соколово</div>
+            </div>
+            <div class="relative">
+                <img src="iksha.jpg" alt="Икша" class="rounded-lg">
+                <div class="absolute bottom-4 left-4 text-white font-bold text-xl">Икша</div>
+            </div>
+            <div class="relative">
+                <img src="banya.jpg" alt="Баня на крыше" class="rounded-lg">
+                <div class="absolute bottom-4 left-4 text-white font-bold text-xl">Баня на крыше</div>
+            </div>
+            <div class="relative">
+                <img src="arzhaniki.jpg" alt="Аржаники" class="rounded-lg">
+                <div class="absolute bottom-4 left-4 text-white font-bold text-xl">Аржаники</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Оверлей -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    
+    <!-- Боковое меню -->
+    <aside class="sidebar p-6 font-bold text-lg space-y-4" id="sidebar">
+        <button class="close-btn" onclick="toggleMenu()">✕</button>
+        <a href="#" class="block">Готовые объекты</a>
+        <a href="#" class="block">Проекты</a>
+        <a href="#" class="block">Услуги</a>
+        <a href="#" class="block">Отделка парных</a>
+        <a href="#" class="block">Статьи</a>
+        <a href="#" class="block">Компания</a>
+        <a href="#" class="block">3D-туры объектов</a>
+        <a href="#" class="block">Документы</a>
+        <a href="#" class="block">Контакты</a>
+        <div class="mt-16 text-xs font-light">
+        <h3 class="font-bold">Офис</h3>
+        <p>Московская область,<br> Одинцовский район,<br> поселок Горки-2,<br> Садовый центр “Горки-Парк”</p>
+        <p class="mt-2">Понедельник - суббота с 10:00 до 19:00</p>
+        <p class="mt-2">+7 499 433-07-03</p>
+        <p class="mt-2">info@artelcraft.ru</p>
+    </div>
+</aside>
+    
+    
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+    </script>
+<footer class="bg-white py-12 px-6">
+    <div class="max-w-screen-xl mx-auto grid grid-cols-4 gap-8">
+        <div class="col-span-4 text-9xl font-bold text-gray-200 text-center">artelcraft</div>
+        
+        <div>
+            <h3 class="font-bold">Соцсети</h3>
+            <ul class="mt-2 space-y-1">
+                <li>📺 Youtube</li>
+                <li>📷 Instagram</li>
+                <li>📘 Facebook</li>
+                <li>💬 Vkontakte</li>
+                <li>🎵 TikTok</li>
+                <li>📌 Pinterest</li>
+                <li>✈️ Telegram</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3 class="font-bold">Меню</h3>
+            <ul class="mt-2 space-y-1">
+                <li>Готовые объекты</li>
+                <li>Проекты</li>
+                <li>Услуги</li>
+                <li>Отделка парных</li>
+                <li>Статьи</li>
+                <li>Компания</li>
+                <li>3D-туры объектов</li>
+                <li>Документы</li>
+                <li>Контакты</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3 class="font-bold">Офис</h3>
+            <p class="mt-2">Московская область,<br> Одинцовский район,<br> поселок Горки-2,<br> Садовый центр “Горки-Парк”</p>
+            <p class="mt-2 font-bold">Понедельник - суббота с 10:00 до 19:00</p>
+            <p class="mt-2">+7 499 433-07-03</p>
+            <p class="mt-2">info@artelcraft.ru</p>
+        </div>
+        
+        <div>
+            <h3 class="font-bold">Производство</h3>
+            <p class="mt-2">Республика Карелия,<br> Прионежский район,<br> поселок Мелиоративный,<br> ул. Лесная 2</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
