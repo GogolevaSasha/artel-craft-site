@@ -1,1 +1,103 @@
+/* styles.css */
+
+/* Общие стили */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Шапка */
+header {
+    background: #fff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 20px 20px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.menu-button {
+    display: block;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+/* Скрываем кнопку меню при открытом меню */
+.menu-open .menu-button {
+    display: none;
+}
+
+/* Меню слева */
+nav {
+    position: fixed;
+    top: 0;
+    left: -320px;  /* Меню скрыто слева */
+    width: 320px;
+    height: 100%;
+    background: white;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+    padding-top: 60px;
+    transition: left 0.3s ease-in-out;
+    border-radius: 0 20px 20px 0;
+    z-index: 1100;
+}
+
+nav.open {
+    left: 0; /* Меню открывается слева */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-left: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 22px;
+    font-weight: bold;
+    display: block;
+    padding: 18px 20px;
+    transition: background 0.3s;
+    border-radius: 10px;
+}
+
+nav a:hover {
+    background: #f0f0f0;
+}
+
+.close-menu {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1200;
+}
+
+/* Блок информации внизу */
+.menu-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 16px;
+    color: #666;
+}
 
