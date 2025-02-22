@@ -31,33 +31,34 @@ header {
     background: none;
     border: none;
     cursor: pointer;
-    position: absolute;
+    position: fixed;
     top: 20px;
-    right: 20px;
+    left: 20px;
     z-index: 1000;
 }
 
-/* Меню */
+/* Меню слева */
 nav {
     position: fixed;
     top: 0;
-    right: -300px;
+    left: -300px;  /* Меню скрыто слева */
     width: 300px;
     height: 100%;
     background: white;
-    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
     padding-top: 60px;
-    transition: right 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out;
 }
 
 nav.open {
-    right: 0;
+    left: 0; /* Меню открывается слева */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    text-align: center;
+    text-align: left;
+    margin-left: 20px;
 }
 
 nav a {
@@ -77,7 +78,8 @@ nav a:hover {
 .close-menu {
     position: absolute;
     top: 15px;
-    right: 20px;
+    left: 20px;
     font-size: 24px;
     cursor: pointer;
 }
+
