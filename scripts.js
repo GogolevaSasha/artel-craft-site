@@ -3,33 +3,28 @@
 // Открытие и закрытие бокового меню
 const menuButton = document.querySelector(".menu-button");
 const closeMenu = document.querySelector(".close-menu");
-const nav = document.querySelector("nav");
+const sidebar = document.querySelector(".sidebar");
 
 menuButton.addEventListener("click", function () {
-    nav.classList.add("open");
+    sidebar.classList.add("open");
 });
 
 closeMenu.addEventListener("click", function () {
-    nav.classList.remove("open");
+    sidebar.classList.remove("open");
 });
 
-// Закрытие меню при клике вне его области, но не на вложенные элементы
-document.addEventListener("click", function (event) {
-    if (!nav.contains(event.target) && !menuButton.contains(event.target) && !event.target.closest("nav")) {
-        nav.classList.remove("open");
-    }
-});
+// Переключение вкладок на странице компании
+document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll(".tab");
+    const tabContents = document.querySelectorAll(".tab-content");
 
-// Анимация появления элементов при скролле с проверкой на существование
-const fadeElements = document.querySelectorAll(".fade-in");
-if (fadeElements.length > 0) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            }
+    tabs.forEach(tab => {
+        tab.addEventListener("click", function () {
+            tabs.forEach(t => t.classList.remove("active"));
+            tabContents.forEach(content => content.classList.remove("active"));
+
+            this.classList.add("active");
+            document.getElementById(this.dataset.tab).classList.add("active");
         });
-    }, { threshold: 0.2 });
-    
-    fadeElements.forEach((el) => observer.observe(el));
-}
+    });
+});
