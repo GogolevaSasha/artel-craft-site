@@ -5,11 +5,49 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #ffffff;
+    color: #000000; /* Чёрный текст */
 }
 
-/* Исправленное меню слева */
+/* Хедер */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: white;
+    border-bottom: 2px solid black; /* Чёрная рамка сверху */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Верхнее меню */
+.top-menu ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+.top-menu ul li {
+    padding: 8px 16px;
+    border: 2px solid black; /* Чёрные рамки */
+    border-radius: 20px; /* Округлённые углы */
+}
+
+.top-menu ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* Кнопка меню справа */
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Боковое меню */
 .sidebar {
     position: fixed;
     left: -280px;
@@ -17,6 +55,7 @@ body {
     width: 280px;
     height: 100%;
     background: white;
+    border-right: 2px solid black; /* Чёрная рамка */
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     transition: left 0.3s ease;
     padding: 20px;
@@ -24,22 +63,6 @@ body {
 
 .sidebar.open {
     left: 0;
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin: 15px 0;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 18px;
-    font-weight: bold;
 }
 
 /* Карточки проектов */
@@ -52,7 +75,8 @@ body {
 
 .project-card {
     background: white;
-    border-radius: 10px;
+    border-radius: 15px; /* Округлённые углы */
+    border: 2px solid black; /* Чёрная рамка */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
@@ -60,7 +84,12 @@ body {
 
 .project-card img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 15px; /* Округлённые изображения */
+}
+
+/* Секции */
+section {
+    padding: 50px;
 }
 
 /* Футер */
