@@ -38,7 +38,7 @@ header {
 }
 
 /* Скрываем кнопку меню при открытом меню */
-nav.open + .menu-button {
+nav.open ~ .menu-button {
     display: none;
 }
 
@@ -54,6 +54,7 @@ nav {
     padding-top: 60px;
     transition: left 0.3s ease-in-out;
     border-radius: 0 20px 20px 0;
+    z-index: 1100;
 }
 
 nav.open {
@@ -88,6 +89,7 @@ nav a:hover {
     left: 20px;
     font-size: 28px;
     cursor: pointer;
+    z-index: 1200;
 }
 
 /* Блок информации внизу */
