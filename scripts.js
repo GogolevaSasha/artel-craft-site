@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.appendChild(menuButton);
 
     const nav = document.querySelector("nav");
+    if (!nav) {
+        console.error("Меню (nav) не найдено!");
+        return;
+    }
+
     menuButton.addEventListener("click", function () {
         nav.classList.toggle("open");
     });
@@ -15,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     closeButton.innerHTML = "✖";
     closeButton.classList.add("close-menu");
     nav.prepend(closeButton);
-    
+
     closeButton.addEventListener("click", function () {
         nav.classList.remove("open");
     });
